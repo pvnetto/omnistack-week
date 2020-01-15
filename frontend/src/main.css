@@ -1,0 +1,120 @@
+.content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 0;
+
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.sidebar {
+    width: 320px;
+    background: white;
+
+    padding: 2rem;
+
+    margin-right: 2rem;
+}
+
+.sidebar h1 {
+    text-align: center;
+}
+
+.form-block {
+    margin-top: 10px;
+}
+
+.form-block label {
+    font-size: 14px;
+    font-weight: bold;
+    display: block;
+
+    color: #acacac;
+}
+
+.form-block input {
+    width: 100%;
+    height: 32px;
+    font-size: 14px;
+    color: #666;
+    border: 0;
+    border-bottom: 1px solid #eee;
+}
+
+.form-block input:focus {
+    outline: none;
+}
+
+.form-block button {
+    width: 100%;
+    padding: 1rem 0;
+    margin-top: 1rem;
+    font-size: 1rem;
+
+    border: 0;
+    background: #7d40e7;
+    color: white;
+
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.form-block button:hover {
+    background: #6931ca;
+}
+
+.form-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+main {
+    flex: 1;
+}
+
+.dev-list {
+    margin: 0;
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(2, 1fr);
+    list-style: none;
+}
+
+.dev-item {
+    background: white;
+    border-radius: 2px;
+    padding: 1.5rem;
+}
+
+.dev-item header {
+    display: flex;
+    flex-direction: row;
+}
+
+.dev-item header img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.dev-info {
+    margin-left: 1rem;
+}
+
+.dev-info span {
+    font-size: 0.9rem;
+    color: #999;
+    margin-top: 0.2rem;
+}
+
+.dev-item p {
+    margin: 1rem 0;
+}
+
+.dev-item a {
+    color: #8e4dff;
+    text-decoration: none;
+    font-size: 0.9rem;
+}

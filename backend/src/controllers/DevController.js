@@ -37,4 +37,8 @@ module.exports = {
 
         res.json(newDev);
     }
+
+    // TODO: show - finds a single element
+    // TODO: update - updates an element
+    // TODO: destroy - deletes an element
 }
