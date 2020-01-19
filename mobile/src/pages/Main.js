@@ -2,9 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { StyleSheet, View, TextInput, TouchableOpacity } from 'react-native';
 import MapView from 'react-native-maps';
 import { requestPermissionsAsync, getCurrentPositionAsync } from 'expo-location';
-
 import { MaterialIcons } from '@expo/vector-icons';
+
 import DevMarker from './main/DevMarker';
+import { connect, disconnect, subscribeToNewDevs } from '../services/socket';
 
 const Main = ({ navigation }) => {
     const [devs, setDevs] = useState([]);
@@ -34,12 +35,25 @@ const Main = ({ navigation }) => {
         loadInitialPosition();
     }, []);
 
+    useEffect(() => {
+        subscribeToNewDevs(dev => setDevs([...devs, dev]));
+    }, [devs])
+
+    // Connects to the backend web socket
+    const setupWebsocket = () => {
+        disconnect();
+
+        const { latitude, longitude } = currentRegion;
+        connect(latitude, longitude, inputTechs);
+    }
+
     const loadDevs = async () => {
         const { latitude, longitude } = currentRegion;
 
         const response = await fetch(`http://192.168.100.107:3333/search?latitude=${latitude}&longitude=${longitude}&techs=${inputTechs}`);
         const devData = await response.json();
         setDevs(devData);
+        setupWebsocket();
     }
 
     const handleRegionChange = (region) => {
